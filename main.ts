@@ -4,6 +4,7 @@ namespace AEP{
     // variables
     let lemontime = 0;
     let mactime = 0;
+    const hxa = new hexcodeaudio();
     const MelodyDev = new music.Melody("B G");
 
     // functions
