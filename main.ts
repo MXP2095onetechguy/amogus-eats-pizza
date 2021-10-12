@@ -1,13 +1,35 @@
-/* variables */
-const MelodyDev = new music.Melody("B G");
+// variables
 let lemontime = 0;
+const MelodyDev = new music.Melody("B G");
+
+// functionality
+sprites.onOverlap(SpriteKind.Food, SpriteKind.Enemy, function (sprite, otherSprite) {
+    otherSprite.setPosition(randint(0, 160), randint(0, 120));
+});
+
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    info.changeScoreBy(1);
+    otherSprite.setPosition(randint(0, 160), randint(0, 120));
+    info.startCountdown(10);
+    music.powerUp.play();
+});
+
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    if (lemontime == 0) {
+        lemontime = 1;
+        game.showLongText("This is your first time and last time I will save you.", DialogLayout.Bottom);
+        otherSprite.setPosition(randint(0, 160), randint(0, 120));
+    } else {
+        game.over(false);
+    }
+});
+
+game.onUpdate(function () {
+
+});
 
 
-/**
- * sprites
- */
-
-
+// sprites
 let amogus = sprites.create(assets.image`Red Amongus`, SpriteKind.Player);
 let pizza = sprites.create(img`
     . . . . . . b b b b . . . . . . 
@@ -46,7 +68,6 @@ let lemon = sprites.create(img`
     . . . . . . c c c c c c b b 4 . 
     `, SpriteKind.Enemy);
 let mac = sprites.create(assets.image`Mac`, SpriteKind.Enemy);
-
 controller.moveSprite(amogus);
 
 // place sprites
@@ -54,39 +75,10 @@ lemon.setPosition(randint(0, 160), randint(0, 120));
 pizza.setPosition(randint(0, 160), randint(0, 120));
 mac.setPosition(randint(0, 160), randint(0, 120));
 
-/**
- * functionality
- */
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
-    info.changeScoreBy(1);
-    otherSprite.setPosition(randint(0, 160), randint(0, 120));
-    info.startCountdown(10);
-    music.powerUp.play();
-});
-sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
-    if(lemontime == 0){
-        lemontime = 1;
-        game.showLongText("This is your first time and last time I will save you.", DialogLayout.Bottom);
-        otherSprite.setPosition(randint(0, 160), randint(0, 120));
-    }
-    else{
-        game.over(false);
-    }
-});
-game.onUpdate(function(){
-
-});
-
-sprites.onOverlap(SpriteKind.Food, SpriteKind.Enemy, function (sprite, otherSprite) {
-    otherSprite.setPosition(randint(0, 160), randint(0, 120));
-    // MelodyDev.play(120);
-});
-
 // inits
 scene.setBackgroundColor(7);
 info.setScore(0);
-
 MelodyDev.play(120);
 game.splash("Amogus eats Pizza", "Pizza time");
 game.setDialogCursor(assets.image`Red Amongus`);
-game.showLongText("You eat pizza, pizza is good. You eat a lemon or mac, eat a lemon and dies. Eat a mac and dies. Key moves you. A skips me dialog box. Eat pizza within 10 second or you die. Once you start eat pizza, timer go. Lemon and mac move if pizza want lemon's space or mac's space. If you unlucky, lemon or mac move in with you.", DialogLayout.Center);
+game.showLongText("You eat pizza, pizza is good. You eat a lemon or mac, eat a lemon and dies. Eat a mac and dies. Key moves you. A skips me dialog box. Eat pizza within 10 second or you die. Once you start eat pizza, timer go. Lemon or mac move if pizza want lemon's space or mac's space. If you unlucky, lemon or mac move in with you.", DialogLayout.Center);
