@@ -1,4 +1,4 @@
-namespace audio {
+namespace AEP {
     export class meltdown {
         hexcode: Buffer = hex``;
     };
