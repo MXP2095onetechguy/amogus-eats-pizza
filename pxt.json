@@ -11,7 +11,8 @@
         "assets.json",
         "images.g.jres",
         "images.g.ts",
-        "main.py"
+        "main.py",
+        "LICENSE.ts"
     ],
     "testFiles": [
         "test.ts"

@@ -59,5 +59,4 @@ let lemon = sprites.create(img`
 controller.moveSprite(amogus)
 // place sprites
 lemon.setPosition(randint(0, 160), randint(0, 120))
-music.playSound()
 pizza.setPosition(randint(0, 160), randint(0, 120))
