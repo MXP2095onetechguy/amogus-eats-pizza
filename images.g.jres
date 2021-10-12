@@ -4,6 +4,11 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Red Amongus"
     },
+    "image2": {
+        "data": "hwQQABAAAAAAwMzMzMzMzAAc3d3dERHLABzNu7sb3csAHM29u9sdywAczbu7Gx3LABzNGxEb3csAHM0REdsdywAczRsbGx3LABzNu7sb3csAHM27u9sdywAczbu7Gx3LABzNu7sb3csAHN3d3RERywDAzMzMzMzMAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Mac"
+    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
