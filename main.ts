@@ -22,6 +22,7 @@ namespace AEP{
         info.changeScoreBy(1);
         otherSprite.setPosition(randint(0, 160), randint(0, 120));
         info.startCountdown(10);
+        sprite.startEffect(effects.confetti, 500);
         music.powerUp.play();
     });
 
@@ -33,6 +34,10 @@ namespace AEP{
         } else {
 
         }
+    });
+
+    forever(function(){
+        music.playMelody("C5 B A G F E D C", 120);
     });
 
     game.onUpdate(function () {
